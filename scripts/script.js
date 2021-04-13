@@ -156,7 +156,7 @@ class ProductItem{
             <div class="item-des-content">
             <p class="item-desc"><h3>${this.product.title}</h3></p>
             <p class="item-desc">${this.product.description}</p>
-            <p class="item-desc"><h3>\$${this.product.price}</h3></p>
+            <p class="item-desc"><h3>GHC ${this.product.price}</h3></p>
             <p class="item-desc"><h4>${this.product.stock} in Stock</h4></p>
           
             <button id="${this.product.title}"class="addToCart-btn">Add to Cart</button>
@@ -184,12 +184,12 @@ class ProductItem{
 
 class ProductsList {
     productArray = [
-        new Products('Washing Machine',25,12,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit','images/washing-machine1.jpg'),
-        new Products('Monarch Watch',19,5,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit.','images/watch3.jpg'),
-        new Products('Headset',17,5,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit','images/headset1.jpg'),
-        new Products('Refrigerator',20,5,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit','images/fridge1.jpg'),
-        new Products('Urren Watch',23,5,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit.','images/black-T-shirt.jpg'),
-        new Products('T-shirt',30,5,'The high quality leather straps and clean dial ensures it is a luxury addition to your outfit','images/yellow-T-shirt.jpg'),
+        new Products('Washing Machine','1224.68',12,'Top quality and energy saving 28kg washing machine to do clean laundry','images/washing-machine1.jpg'),
+        new Products('Monarch Watch','65.40',24,'The high quality leather straps and clean dial ensures it is a luxury.','images/watch3.jpg'),
+        new Products('Headset','75.52',5,'Enjoy good and pleasant sounds with the new quarsh headset','images/headset1.jpg'),
+        new Products('Smart Fridge','1450',10,'The smart double door refrigerator to your home','images/fridge1.jpg'),
+        new Products('Black T-shirt','40',3,'The high quality designer brand to add to your collection.','images/black-T-shirt.jpg'),
+        new Products('Yellow T-shirt','35',20,'The high quality designer brand to add to your collection','images/yellow-T-shirt.jpg'),
     ]
 
     renderProducts() {
