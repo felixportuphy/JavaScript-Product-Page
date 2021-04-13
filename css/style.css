@@ -1,0 +1,325 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+#app{
+    height:100vh;      
+}
+
+.header{
+background-color:#fecd1a;
+padding:1rem 2rem 1rem 3rem;
+
+}
+
+
+#nav-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+#home-logo{
+    color:white;
+    font-weight:bold;
+    font-size:2rem;
+}
+
+
+
+#main-nav ul{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+
+
+#main-nav ul li{
+    list-style:none;
+    padding-left:30px;
+}
+
+
+#main-nav ul li a{
+   text-decoration:none;
+   text-transform: uppercase;
+   font-size:1.1rem;
+   color:white;
+}
+
+
+
+#main-nav ul li a:hover{
+    color:#52575d;
+    cursor:pointer;
+ }
+
+ .search-area{
+     width:30rem;
+     height:2rem;
+    
+    
+ }
+
+ .search-input{
+     width:87%;
+     height:100%;
+     border:none;
+     outline:none;
+     padding-left:0.3rem;
+ }
+
+ #search-btn{
+     width:10%;
+     height:100%;
+     padding-left:0.5rem;
+ }
+
+ #cd-cart-trigger{
+     cursor: pointer;
+    
+ }
+
+ #item-incart{
+     position:absolute;
+     top:0.8rem;
+     right:2.8rem;
+     font-size:1.2rem;
+     font-weight:bold;
+ }
+
+ 
+ .shopCart-container{
+    
+     position:absolute;
+     top:20%;
+     left:10%;
+     width:70rem;
+     background-color:white;
+     color:black;
+     padding:2rem;
+     z-index:200;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.67);
+
+ }
+
+ .visible{
+    display:block;
+    transition:all 0.3s;
+ }
+
+ 
+ .invisible{
+    display:none;
+    transition:all 0.6s ;
+ }
+
+ .cart-head{
+     border-bottom:0.02rem solid black;
+
+ }
+
+
+
+ .cart-content{
+    display:flex;
+     margin-bottom:3rem;
+ }
+
+ 
+ .added-cartItems{
+    display:flex;
+     margin-bottom:3rem;
+ }
+
+
+
+
+ .cart-image{
+     width:5rem;
+     height:5rem;
+     border:1px solid black;
+     margin-top:1rem;
+ }
+
+ 
+ .cart-image img{
+    width:100%;
+    height:100%;
+   
+}
+
+ .margin-top{
+     margin-top:2rem;
+ }
+
+.os-container{
+  background-color:#52575d;
+  color:white;
+  position:absolute;
+  left:25%;
+  bottom:0.5rem;
+  padding:1rem;
+  width:50%;
+  height:3rem;
+  border-radius:8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.backdrop{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:70;
+    width:100%;
+    height:100vh;
+    background-color:rgba(0, 0, 0,0.9);
+    pointer-events:none;
+    display:block;
+}
+
+ .prodContainer{
+     display:grid;
+     grid-template-columns:repeat(3,2fr);
+     grid-gap:1rem;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.67);
+     padding:2rem;
+     
+ }
+
+ .product-item{ 
+     text-align: center;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.52);
+
+ }
+
+ 
+ .product-item:hover{
+    transform: scale(1.02);
+}
+
+
+ .itemContent{
+     display:flex;
+
+ }
+
+ .image-content{
+     padding:2rem 0;
+     width:52%
+ }
+
+
+ .item-des-content{
+    text-align: center; 
+    padding:3.8rem 1rem 2rem 1rem ;
+    
+
+ }
+
+ .item-desc{
+     padding-bottom:0.3rem;
+ }
+
+ .addToCart-btn{
+   padding:0.2rem;
+   border-radius:3px;
+   font-size:1rem;
+   width:6rem;
+   height:2rem;
+   background-color:rgb(17, 15, 15);
+   margin-top:1rem;
+   
+   
+    
+ }
+
+
+ button{
+     background-color:#52575d;
+     color:#f6f4e6;
+ }
+
+ .btn{
+     width:5rem;
+     height:2rem;
+     border:none;
+     /* outline:none; */
+     border-radius:8px;
+     padding:0.2rem;
+     background-color:white;
+     color:black;
+ }
+
+ .del-btn{
+    background-color:red;
+    width:3.5rem;
+    color:white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.62);
+ }
+
+
+
+.footer{
+    background-color:#52575d;
+    color: white;
+    margin-top:1rem;
+    width:100%;
+    
+    
+}
+
+.footer-content{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+    border-bottom:1px solid #f6f4e6;
+    padding:1rem;
+    
+}
+
+.list li{
+    list-style:none;
+}
+
+
+.list li {
+    font-size:1.1rem;
+    text-align: center;
+ }
+ 
+
+.list li a{
+   cursor:pointer;
+   font-size:0.8rem;
+}
+
+
+.footer-bottom{
+    padding:1rem;
+}
+
+.flex{
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.flex li{
+    list-style:none;
+    padding-left:2rem;
+}
+.flex li a{
+    cursor:pointer;
+    font-size:2rem;
+}
+
+.color{
+    color:fecd1a,gitfddb3a,52575d,41444b,f6f4e6;
+}
