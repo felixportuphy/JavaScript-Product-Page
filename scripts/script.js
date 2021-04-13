@@ -225,11 +225,12 @@ class shoppingCart {
 
         
     showCart (){
-        const shopCart = document.createElement('div');
-        shopCart.className = 'shopCart-container visible invisible';
+        const Cart = document.querySelector('.shopCart-container');
+        Cart.className = 'shopCart-container visible invisible';
         // const Cart = document.querySelector('.shopCart-container');
-        shopCart.classList.toggle('invisible');
-        console.log('working');
+        let results = Cart.classList.toggle('invisible');
+        console.log(results);
+        
        
     }
 
@@ -278,12 +279,14 @@ class shoppingCart {
 
         
       
-   
+     
 
         const cart_btn = document.querySelector('#cd-cart-trigger');
-        cart_btn.addEventListener("click",
-            // this.backdrop,
-            this.showCart
+        cart_btn.addEventListener("click",()=>{
+            this.backdrop();
+            this.showCart();
+        }
+           
         
         );
         
@@ -296,10 +299,16 @@ class Shop{
 
     render(){
         const cart = new shoppingCart();
+        
         appContainer.append(header);
         const cartEl = cart.render();
-        const renderItems = new ProductsList();
-        renderItems.renderProducts();
+        const prodList = new ProductsList();
+         const product= prodList.renderProducts();
+       
+        appContainer.append(cartEl);
+        appContainer.append(product);
+
+        console.log(cartEl);
         appContainer.append(footer);
         // for (const product of renderItems.productArray){
         //     product.getAddToCartBtn.addEventListener('click',)
