@@ -85,8 +85,8 @@ class ProductItem{
         const prodEl = prodObj.productArray;
              
              
-       const Cart = document.createElement('div');
-       Cart.className ='cart-content'
+       const Cart = document.querySelector('.cart-content');
+       
        
         const itemCart = document.createElement('div');
         itemCart.className ="added-cartItems";
@@ -116,7 +116,8 @@ class ProductItem{
             })
 
          
-       Cart.append(itemCart);
+    
+              Cart.insertAdjacentElement("afterend",itemCart);
       
 
     }
@@ -263,14 +264,21 @@ class shoppingCart {
                 <div><h4>Item Name</h4></div>
                 <div><h4>Price</h4></div>
                 <div><h4>Quantity</h4></div>
-                <div><h4>Total</h4></div>
+                <div><h4>Total</h4></div><br>
 
              </div>
              
               
-             <div class="flex os-container">
-              <p>Total:\$${0.00}</p>
-              <button class=" btn">Oder Now</button>
+             <div class=" os-container">
+                <div class="flex margin_bottom ">
+                    <p>Total:\GHC ${0.00}</p>
+                    <button class="order-btn shopCart-btn">Order Now</button>
+                </div>
+                <div class="flex">
+                <button class=" cs-btn shopCart-btn">Continue shopping</button>
+                    <button class="co-btn shopCart-btn">Checkout</button>
+                </div>
+            
              </div>
     
             </div>
