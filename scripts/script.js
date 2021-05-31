@@ -63,7 +63,8 @@ footer.innerHTML =  `
 
 
 class Products{
-    constructor(title,price,stock,description,imageUrl){
+    constructor(id,title,price,stock,description,imageUrl){
+        this.id=id;
         this.title = title;
         this.price = price;
         this.stock = stock;
@@ -124,28 +125,13 @@ class ProductItem{
 
                
     updateNoCartItems(){
-        const itemsNo = document.getElementById('item-incart');
-        const addToCart = document.querySelector('.addToCart-btn');
-        let count =0;
+        let itemsNo = document.getElementById('item-incart').innerText;
 
-        addToCart.addEventListener('click', function(){
-            count++;
-            console.log(count);
-            itemsNo.innerText =count;
-            return count;
-        }
+        itemsNo = parseInt(itemsNo) + 1 ;
 
-       
-       
-      );
-    
-     
- 
-        
-        
-      
+        document.getElementById('item-incart').innerText = itemsNo;
     }
-
+  
   
 
     render(){
@@ -155,23 +141,25 @@ class ProductItem{
         <div class="itemContent">
             <div class="image-content"><img src="${this.product.imageUrl}" alt="${this.product.title}"></div>
             <div class="item-des-content">
-            <p class="item-desc"><h3>${this.product.title}</h3></p>
-            <p class="item-desc">${this.product.description}</p>
-            <p class="item-desc"><h3>GHC ${this.product.price}</h3></p>
-            <p class="item-desc"><h4>${this.product.stock} in Stock</h4></p>
+            <p class="item-desc"><h3 class="title">${this.product.title}</h3></p>
+            <p class="item-desc" id="pd-desc">${this.product.description}</p>
+            <p class="item-desc"><h3 class="item-price">GHC ${this.product.price}</h3></p>
+            <p class="item-desc"><h4 class="item-stock">${this.product.stock} in Stock</h4></p>
           
-            <button id="${this.product.title}"class="addToCart-btn">Add to Cart</button>
+            <button id=${this.product.id} class="addToCart-btn">Add to Cart</button>
             </div>
         </div>
         
       
       `;
 
-      this.updateNoCartItems.bind(this)
+     
       const addToCart = prodItem.querySelector('.addToCart-btn');
-      addToCart.addEventListener('click',
-        this.addToCart.bind(this)  
-      );
+      addToCart.addEventListener('click',()=>{
+        this.addToCart.bind(this) 
+        this.updateNoCartItems()
+
+      });
       
    
        return prodItem;
@@ -183,14 +171,19 @@ class ProductItem{
 }
 
 
+
+
+
+
+
 class ProductsList {
     productArray = [
-        new Products('Washing Machine','1224.68',12,'Top quality and energy saving 28kg washing machine to do clean laundry','images/washing-machine1.jpg'),
-        new Products('Monarch Watch','65.40',24,'The high quality leather straps and clean dial ensures it is a luxury.','images/watch3.jpg'),
-        new Products('Headset','75.52',5,'Enjoy good and pleasant sounds with the new quarsh headset','images/headset1.jpg'),
-        new Products('Smart Fridge','1450',10,'The smart double door refrigerator to your home','images/fridge1.jpg'),
-        new Products('Black T-shirt','40',3,'The high quality designer brand to add to your collection.','images/black-T-shirt.jpg'),
-        new Products('Yellow T-shirt','35',20,'The high quality designer brand to add to your collection','images/yellow-T-shirt.jpg'),
+        new Products('a1','Washing Machine','1224.68',12,'Top quality and energy saving 28kg washing machine to do clean laundry','images/washing-machine1.jpg'),
+        new Products('a2','Monarch Watch','65.40',24,'The high quality leather straps and clean dial ensures it is a luxury.','images/watch3.jpg'),
+        new Products('a3','Headset','75.52',5,'Enjoy good and pleasant sounds with the new quarsh headset','images/headset1.jpg'),
+        new Products('a4','Smart Fridge','1450',10,'The smart double door refrigerator to your home','images/fridge1.jpg'),
+        new Products('a5','Black T-shirt','40',3,'The high quality designer brand to add to your collection.','images/black-T-shirt.jpg'),
+        new Products('a6','Yellow T-shirt','35',20,'The high quality designer brand to add to your collection','images/yellow-T-shirt.jpg'),
     ]
 
     renderProducts() {
@@ -218,9 +211,9 @@ class shoppingCart {
     
 
    itemTotal(){
-       let cur = this.productArray;
-       this.reduce((prev,cur)=>{
-          return prev+cur.price;
+       let current = this.productArray;
+       this.reduce((prev, cur)=>{
+          return cur = prev + current.price;
        },0)
    }
 
@@ -293,10 +286,16 @@ class shoppingCart {
         cart_btn.addEventListener("click",()=>{
             this.backdrop();
             this.showCart();
-        }
-           
-        
-        );
+        } );
+
+        const closeCartEl = document.querySelector('body');
+        closeCartEl.addEventListener('click', ()=>{
+            cart_btn.removeEventListener('click',
+             this.showCart,true
+            );
+        });
+
+
         
         return shopCart;
 
@@ -316,7 +315,7 @@ class Shop{
         appContainer.append(cartEl);
         appContainer.append(product);
 
-        console.log(cartEl);
+        // console.log(cartEl);
         appContainer.append(footer);
         // for (const product of renderItems.productArray){
         //     product.getAddToCartBtn.addEventListener('click',)
